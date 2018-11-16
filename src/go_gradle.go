@@ -1,6 +1,7 @@
 package main
 
 import (
+	"container/list"
 	"fmt"
 )
 
@@ -11,12 +12,17 @@ func main() {
 
 	fmt.Println("Rooms: ", hs.rooms)
 
-	vec := fun New() *List"
+	lst := list.New()
 
-	fmt.Println("Vector size: ", vec.size())
+	fmt.Println("List size: ", lst.Len())
+
+	// Read file: https://gobyexample.com/reading-files
 
 } // end func main()
 
+/*
+House is a generic container, designed to do nothing
+*/
 type House struct {
 	rooms   int
 	address string
