@@ -29,9 +29,9 @@ plugins {
 
 
 // Task from gradle tutorial https://guides.gradle.org/creating-new-gradle-builds/
-task copy(type: Copy, group: "Custom", description: "Copies hello world from an adjacent directory"){
+task copy (dependsOn: 'my_clean', type: Copy, group: "Custom", description: "Copies hello world from an adjacent directory"){
   from "../helloWorld"
-  into "dest"
+  into "out"
 }// end task copy_()
 
 
@@ -77,7 +77,7 @@ golang {
 build {
   // -o output
   //go 'build src/go_gradle.go'
-  go 'build -o out/go_gradle src/go_gradle.go '
+  go 'build -o out/go_gradle src/go_gradle.go'
 }// end build
 
 
@@ -92,5 +92,5 @@ build {
 // Removed the executable
 // Run with >> gradle my_clean
 task my_clean(type: Delete) {
-  delete 'out/go_gradle'
+  delete 'out/Notes.md', 'out/go_gradle', 'out/helloworld.go'
 }// end clean
