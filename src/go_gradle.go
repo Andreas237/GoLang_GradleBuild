@@ -16,6 +16,8 @@ func main() {
 
 	fmt.Println("List size: ", lst.Len())
 
+	myt := makeTransition(1, "a", "b", "", 2)
+	printTransition(myt)
 	// Read file: https://gobyexample.com/reading-files
 
 } // end func main()
@@ -30,3 +32,28 @@ type House struct {
 
 func (h House) GetRooms() int      { return h.rooms }
 func (h House) GetAddress() string { return h.address }
+
+/*
+Transition for Push Down Automaton
+*/
+type Transition struct {
+	currentState int
+	input        string
+	stackPush    string
+	stackPop     string
+	finalState   int
+} // end type Transition struct
+
+func makeTransition(currentState int,
+	input string,
+	stackPush string,
+	stackPop string,
+	finalState int) Transition {
+	tr := Transition{currentState: currentState, input: input, stackPush: stackPush, stackPop: stackPop, finalState: finalState}
+	return tr
+} // end makeTransition
+
+func printTransition(t Transition) {
+	fmt.Printf("Current State: %d\nInput: %s\nStack Push: %s\nStack Pop: %s\nFinal State: %d\n", t.currentState, t.input, t.stackPop, t.stackPush, t.finalState)
+
+} // end printTransition

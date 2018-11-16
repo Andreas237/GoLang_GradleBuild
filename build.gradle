@@ -73,7 +73,7 @@ golang {
 
 
 // Build task from example https://github.com/gogradle/gogradle/blob/master/docs/tasks.md
-Run with >> ./gradlew build
+// Run with >> ./gradlew build
 build {
   // -o output
   //go 'build src/go_gradle.go'
